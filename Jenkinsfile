@@ -21,8 +21,7 @@ pipeline {
     }
         stage ('deploy') {
             steps {
-                sh 'pwd'
-                sh 'ls app'
+                sh 'scp -v -o StrictHostKeyChecking=no  -i /var/jenkins_home/nouman_pk app/*.jar ubuntu@18.234.68.221:/home/ubuntu/'
             }
         }
  }
