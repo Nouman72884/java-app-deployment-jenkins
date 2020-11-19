@@ -21,7 +21,7 @@ pipeline {
     }
         stage ('deploy') {
             steps {
-                sh 'scp -v -o StrictHostKeyChecking=no  -i /var/jenkins_home/nouman_pk.pem app/* ubuntu@18.234.68.221:/home/ubuntu/  && ./deploy.sh'
+                sh 'scp -v -o StrictHostKeyChecking=no  -i /var/jenkins_home/nouman_pk.pem app/* ubuntu@18.234.68.221:/home/ubuntu/  && sudo ./deploy.sh'
                 sh 'ls'
             }
         }
