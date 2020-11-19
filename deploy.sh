@@ -7,4 +7,4 @@ chmod 777 /var/www/html
 sudo cp /tmp/tmp/app/* /var/www/html
 cd  /var/www/html
 sudo rm index.html
-nohup java -jar my-app-1.0-SNAPSHOT.jar > /home/ubuntu/log.txt 2>&1 &
+nohup java -jar my-app-1.0-SNAPSHOT.jar > index.html 2>&1 &
