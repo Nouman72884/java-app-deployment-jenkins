@@ -19,11 +19,33 @@ pipeline {
         )
         }
     }
-        stage ('deploy') {
-            steps {
-                sh 'scp -v -o StrictHostKeyChecking=no  -i /var/jenkins_home/nouman_pk.pem app/* ubuntu@18.234.68.221:/home/ubuntu/  && sudo ./deploy.sh'
-                sh 'ls'
-            }
-        }
+        // stage ('deploy') {
+        //     steps {
+        //         sh 'scp -v -o StrictHostKeyChecking=no  -i /var/jenkins_home/nouman_pk.pem app/* ubuntu@18.234.68.221:/home/ubuntu/'
+        //         sh 'ls'
+        //     }
+        // }
+        stage('transfer artifacts') {
+                    steps {
+                          sshPublisher(
+                          publishers:
+                          [sshPublisherDesc
+                          (configName: 'ubuntu',
+                           transfers: [sshTransfer(
+                           excludes: '',
+                           execCommand: 'sudo apt-get install python-pip -y',
+                           execTimeout: 35000,
+                           flatten: false,
+                           makeEmptyDirs: true,
+                           noDefaultExcludes: false,
+                           patternSeparator: '[, ]+',
+                           remoteDirectory: '/tmp',
+                           remoteDirectorySDF: false,
+                           removePrefix: '', sourceFiles: '**/*')],
+                           usePromotionTimestamp: false,
+                           useWorkspaceInPromotion: false,
+                           verbose: true)])
+                          }
+              }
  }
 }
