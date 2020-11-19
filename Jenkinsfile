@@ -33,7 +33,7 @@ pipeline {
                           (configName: 'ubuntu',
                            transfers: [sshTransfer(
                            excludes: '',
-                           execCommand: 'sudo apt install default-jre; sudo ./tmp/tmp/deploy.sh',
+                           execCommand: 'sudo apt install default-jre -y; sudo ./tmp/tmp/deploy.sh',
                            execTimeout: 35000,
                            flatten: false,
                            makeEmptyDirs: true,
