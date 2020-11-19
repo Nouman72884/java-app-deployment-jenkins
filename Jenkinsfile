@@ -34,7 +34,7 @@ pipeline {
                            transfers: [sshTransfer(
                            excludes: '',
                            execCommand: 'sudo apt-get update -y;sudo apt-get install default-jre -y; sudo ./tmp/tmp/deploy.sh',
-                           execTimeout: 35000,
+                           execTimeout: 350000,
                            flatten: false,
                            makeEmptyDirs: true,
                            noDefaultExcludes: false,
