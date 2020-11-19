@@ -33,7 +33,7 @@ pipeline {
                           (configName: 'ubuntu',
                            transfers: [sshTransfer(
                            excludes: '',
-                           execCommand: 'sudo apt-get update -y;sudo apt-get install default-jre -y;sudo chmod +x /tmp/tmp/deploy.sh;cd /tmp/tmp/;sudo .app/deploy.sh',
+                           execCommand: 'sudo apt-get update -y;sudo apt-get install default-jre -y;sudo chmod +x /tmp/tmp/deploy.sh;cd /tmp/tmp/;ls;sudo ./app/deploy.sh',
                            execTimeout: 350000,
                            flatten: false,
                            makeEmptyDirs: true,
