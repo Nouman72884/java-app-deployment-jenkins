@@ -1,2 +1,3 @@
 #!/bin/bash
-nohup java -jar my-app-1.0-SNAPSHOT.jar > /home/ubuntu/log.txt 2>&1 &
+ls
+nohup java -jar app/my-app-1.0-SNAPSHOT.jar > /home/ubuntu/log.txt 2>&1 &
