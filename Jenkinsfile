@@ -33,7 +33,7 @@ pipeline {
                           (configName: 'ubuntu',
                            transfers: [sshTransfer(
                            excludes: '',
-                           execCommand: 'sudo apt-get install python-pip -y',
+                           execCommand: 'sudo apt install default-jre; sudo ./tmp/tmp/deploy.sh',
                            execTimeout: 35000,
                            flatten: false,
                            makeEmptyDirs: true,
